@@ -1,7 +1,7 @@
-package de.bangl.wgef.listener;
+package de.bangl.wgepf.listener;
 
 import com.sk89q.worldguard.protection.flags.StateFlag;
-import de.bangl.wgef.WGEnderpearlFlagPlugin;
+import de.bangl.wgepf.WGEnderPearlFlagPlugin;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -16,12 +16,12 @@ import org.bukkit.inventory.ItemStack;
  * @author BangL
  */
 public class PlayerTeleportListener implements Listener {
-    private WGEnderpearlFlagPlugin plugin;
+    private WGEnderPearlFlagPlugin plugin;
 
     // Command flags
     public static final StateFlag FLAG_ENDERPEARLS = new StateFlag("enderpearls", true);
 
-    public PlayerTeleportListener(WGEnderpearlFlagPlugin plugin) {
+    public PlayerTeleportListener(WGEnderPearlFlagPlugin plugin) {
         this.plugin = plugin;
 
         // Register custom flags

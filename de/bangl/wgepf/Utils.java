@@ -1,4 +1,4 @@
-package de.bangl.wgef;
+package de.bangl.wgepf;
 
 import com.mewin.WGCustomFlags.WGCustomFlagsPlugin;
 import com.sk89q.worldguard.bukkit.WorldGuardPlugin;
@@ -10,7 +10,7 @@ import org.bukkit.plugin.Plugin;
  */
 public class Utils {
 
-    public static WGCustomFlagsPlugin getWGCustomFlags(WGEnderpearlFlagPlugin plugin) {
+    public static WGCustomFlagsPlugin getWGCustomFlags(WGEnderPearlFlagPlugin plugin) {
         Plugin wgcf = plugin.getServer().getPluginManager().getPlugin("WGCustomFlags");
         if (wgcf == null || !(wgcf instanceof WGCustomFlagsPlugin)) {
             return null;
@@ -18,7 +18,7 @@ public class Utils {
         return (WGCustomFlagsPlugin)wgcf;
     }
 
-    public static WorldGuardPlugin getWorldGuard(WGEnderpearlFlagPlugin plugin) {
+    public static WorldGuardPlugin getWorldGuard(WGEnderPearlFlagPlugin plugin) {
         Plugin wg = plugin.getServer().getPluginManager().getPlugin("WorldGuard");
         if (wg == null || !(wg instanceof WorldGuardPlugin)) {
             return null;
@@ -26,7 +26,7 @@ public class Utils {
         return (WorldGuardPlugin)wg;
     }
 
-    public static void loadConfig(WGEnderpearlFlagPlugin plugin) {
+    public static void loadConfig(WGEnderPearlFlagPlugin plugin) {
         plugin.getConfig().addDefault("messages.blocked.to", "You are not allowed to use enderpearls into this region.");
         plugin.getConfig().addDefault("messages.blocked.from", "You are not allowed to use enderpearls in this region.");
         plugin.getConfig().addDefault("settings.keeppearl", true);

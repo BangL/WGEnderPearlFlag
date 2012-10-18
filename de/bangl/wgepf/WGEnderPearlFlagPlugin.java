@@ -1,15 +1,15 @@
-package de.bangl.wgef;
+package de.bangl.wgepf;
 
 import com.mewin.WGCustomFlags.WGCustomFlagsPlugin;
 import com.sk89q.worldguard.bukkit.WorldGuardPlugin;
-import de.bangl.wgef.listener.PlayerTeleportListener;
+import de.bangl.wgepf.listener.PlayerTeleportListener;
 import org.bukkit.plugin.java.JavaPlugin;
 
 /**
  *
  * @author BangL
  */
-public class WGEnderpearlFlagPlugin extends JavaPlugin {
+public class WGEnderPearlFlagPlugin extends JavaPlugin {
 
     // Plugins
     private WGCustomFlagsPlugin pluginWGCustomFlags;
