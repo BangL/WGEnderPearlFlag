@@ -45,9 +45,9 @@ public class PlayerTeleportListener implements Listener {
         Location from = event.getFrom();
         Location to = event.getTo();
 
-        if (!plugin.getWGP().getRegionManager(from.getWorld()).getApplicableRegions(from).allows(PlayerTeleportListener.FLAG_ENDER_PEARLS)) {
+        if (!plugin.getWGP().getRegionManager(from.getWorld()).getApplicableRegions(from).allows(FLAG_ENDER_PEARLS)) {
             cancelEnderpearlEvent(player, this.plugin.getConfig().getString("messages.blocked.from"), event);
-        } else if (!plugin.getWGP().getRegionManager(to.getWorld()).getApplicableRegions(to).allows(PlayerTeleportListener.FLAG_ENDER_PEARLS)) {
+        } else if (!plugin.getWGP().getRegionManager(to.getWorld()).getApplicableRegions(to).allows(FLAG_ENDER_PEARLS)) {
             cancelEnderpearlEvent(player, this.plugin.getConfig().getString("messages.blocked.to"), event);
         }
     }
