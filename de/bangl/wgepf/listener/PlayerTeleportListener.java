@@ -19,13 +19,13 @@ public class PlayerTeleportListener implements Listener {
     private WGEnderPearlFlagPlugin plugin;
 
     // Command flags
-    public static final StateFlag FLAG_ENDERPEARLS = new StateFlag("enderpearls", true);
+    public static final StateFlag FLAG_ENDER_PEARLS = new StateFlag("enderpearls", true);
 
     public PlayerTeleportListener(WGEnderPearlFlagPlugin plugin) {
         this.plugin = plugin;
 
         // Register custom flags
-        plugin.getWGCFP().addCustomFlag(FLAG_ENDERPEARLS);
+        plugin.getWGCFP().addCustomFlag(FLAG_ENDER_PEARLS);
 
         // Register events
         plugin.getServer().getPluginManager().registerEvents(this, plugin);
@@ -45,9 +45,9 @@ public class PlayerTeleportListener implements Listener {
         Location from = event.getFrom();
         Location to = event.getTo();
 
-        if (!plugin.getWGP().getRegionManager(from.getWorld()).getApplicableRegions(from).allows(PlayerTeleportListener.FLAG_ENDERPEARLS)) {
+        if (!plugin.getWGP().getRegionManager(from.getWorld()).getApplicableRegions(from).allows(PlayerTeleportListener.FLAG_ENDER_PEARLS)) {
             cancelEnderpearlEvent(player, this.plugin.getConfig().getString("messages.blocked.from"), event);
-        } else if (!plugin.getWGP().getRegionManager(to.getWorld()).getApplicableRegions(to).allows(PlayerTeleportListener.FLAG_ENDERPEARLS)) {
+        } else if (!plugin.getWGP().getRegionManager(to.getWorld()).getApplicableRegions(to).allows(PlayerTeleportListener.FLAG_ENDER_PEARLS)) {
             cancelEnderpearlEvent(player, this.plugin.getConfig().getString("messages.blocked.to"), event);
         }
     }
