@@ -1,5 +1,6 @@
 package de.bangl.wgepf.listener;
 
+import com.sk89q.worldguard.bukkit.WorldGuardPlugin;
 import com.sk89q.worldguard.protection.flags.StateFlag;
 import de.bangl.wgepf.WGEnderPearlFlagPlugin;
 import org.bukkit.ChatColor;
@@ -9,6 +10,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerTeleportEvent;
+import org.bukkit.event.player.PlayerTeleportEvent.TeleportCause;
 import org.bukkit.inventory.ItemStack;
 
 /**
@@ -35,20 +37,18 @@ public class PlayerTeleportListener implements Listener {
     @EventHandler
     public void onPlayerTeleportEvent(PlayerTeleportEvent event) {
 
-        // Only handle if the reason was an enderpearl
-        PlayerTeleportEvent.TeleportCause cause = event.getCause();
-        if ((cause == null) || (cause != PlayerTeleportEvent.TeleportCause.ENDER_PEARL)) {
-            return;
-        }
+        final Player player = event.getPlayer();
+        final WorldGuardPlugin wgp = plugin.getWGP();
+        final Location from = event.getFrom();
+        final Location to = event.getTo();
 
-        Player player = event.getPlayer();
-        Location from = event.getFrom();
-        Location to = event.getTo();
-
-        if (!plugin.getWGP().getRegionManager(from.getWorld()).getApplicableRegions(from).allows(FLAG_ENDER_PEARLS)) {
-            cancelEnderpearlEvent(player, this.plugin.getConfig().getString("messages.blocked.from"), event);
-        } else if (!plugin.getWGP().getRegionManager(to.getWorld()).getApplicableRegions(to).allows(FLAG_ENDER_PEARLS)) {
-            cancelEnderpearlEvent(player, this.plugin.getConfig().getString("messages.blocked.to"), event);
+        if (event.getCause() == TeleportCause.ENDER_PEARL
+                && !player.isOp()) {
+            if (!wgp.getRegionManager(from.getWorld()).getApplicableRegions(from).allows(FLAG_ENDER_PEARLS)) {
+                cancelEnderpearlEvent(player, this.plugin.getConfig().getString("messages.blocked.from"), event);
+            } else if (!wgp.getRegionManager(to.getWorld()).getApplicableRegions(to).allows(FLAG_ENDER_PEARLS)) {
+                cancelEnderpearlEvent(player, this.plugin.getConfig().getString("messages.blocked.to"), event);
+            }
         }
     }
     
