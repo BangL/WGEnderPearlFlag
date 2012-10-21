@@ -1,7 +1,8 @@
 name: WGEnderPearlFlag
-version: 0.1
-description: '"WorldGuard" extension to block enderpearls in specific regions.'
-author: BangL
-website: http://bangl.de/
-depend: [WorldGuard, WorldEdit, WGCustomFlags]
 main: de.bangl.wgepf.WGEnderPearlFlagPlugin
+description: WorldGuard extension to block enderpearls in specific regions.
+version: 0.1
+
+authors: [ BangL ]
+depend: [ WorldGuard, WGCustomFlags ]
+softdepend: [ WorldEdit ]

@@ -1,4 +1,4 @@
-WGEnderpearlFlag
+WGEnderPearlFlag
 ================
 
-"Essentials" extension to (dis)allow the usage of enderpearls in specific "WorldGuard" regions.
+WorldGuard extension to block enderpearls in specific regions.
