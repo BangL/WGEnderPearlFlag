@@ -68,7 +68,7 @@ public class WGEnderPearlFlagPlugin extends JavaPlugin {
         this.pluginWorldGuard = null;
         this.listenerPlayerTeleport = null;
 
-        saveConfig();
+        //saveConfig();
     }
 
 }
